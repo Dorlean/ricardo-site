@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricardo Dorlean Services</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    header {
+      background: #2c4a9e;
+      color: white;
+      padding: 18px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h2 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #b9d6ff;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 50px;
+      background: linear-gradient(135deg, #2c4a9e, #3b6edc);
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: #6fc3ff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #2c4a9e;
+    }
+
+    .btn-primary:hover {
+      background: #dbeafe;
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .profile img {
+      width: 320px;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    section {
+      padding: 70px 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      color: #2c4a9e;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 35px;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+      padding: 25px;
+      border-radius: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #2c4a9e;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .about-box {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .about-box strong {
+      color: #2c4a9e;
+    }
+
+    .contact-box {
+      background: white;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto 0;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #374151;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-send {
+      margin-top: 15px;
+      padding: 13px;
+      width: 100%;
+      border: none;
+      background: linear-gradient(135deg, #2c4a9e, #3b6edc);
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-send:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 20px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Ricardo Dorlean</h2>
+    <nav>
+      <a href="#home">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#about">À propos</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>
+        Création de sites web, logos et applications
+        <span>professionnelles</span>
+      </h1>
+      <p>
+        Je suis Ricardo Dorlean, informaticien. J’aide les entreprises, écoles et particuliers à développer leur présence numérique avec des solutions modernes, propres et efficaces.
+      </p>
+      <div class="buttons">
+        <a href="#contact" class="btn-primary">Me contacter</a>
+        <a href="#services" class="btn-secondary">Voir mes services</a>
+      </div>
+    </div>
+
+    <div class="profile">
+      <img src="image.jpg/Dorlean.png" alt="Ricardo Dorlean">
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Mes services</h2>
+    <p class="section-subtitle">Des solutions modernes pour développer votre activité</p>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" alt="Site web">
+        <h3>Sites web</h3>
+        <p>Création de sites modernes, rapides et professionnels pour entreprises, écoles, commerces et particuliers.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Design">
+        <h3>Design</h3>
+        <p>Création de logos, flyers, affiches et visuels publicitaires avec une image professionnelle.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Applications">
+        <h3>Applications</h3>
+        <p>Développement d’applications de gestion pour école, stock, clinique et activités administratives.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">À propos de moi</h2>
+    <p class="section-subtitle">Un professionnel sérieux, créatif et passionné</p>
+
+    <div class="about-box">
+      <p>
+        Je suis <strong>Ricardo Dorlean</strong>, informaticien passionné par la technologie, le développement web et les solutions numériques modernes.
+      </p>
+      <p>
+        J’aide les entreprises, écoles et particuliers à créer des sites web, des applications et des supports visuels professionnels adaptés à leurs besoins.
+      </p>
+      <p>
+        Mon objectif est d’offrir un travail de qualité, à un prix accessible, avec une livraison rapide et un accompagnement sérieux.
+      </p>
+      <p>
+        ✔ Travail professionnel <br>
+        ✔ Prix accessibles <br>
+        ✔ Livraison rapide
+      </p>
+    </div>
+  </section>
+
+  <section id="tarifs">
+    <h2 class="section-title">Tarifs</h2>
+    <p class="section-subtitle">Des prix adaptés à vos besoins et à votre budget</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Site Web</h3>
+        <p>Site vitrine professionnel</p>
+        <p><strong>À partir de 150 USD</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Logo & Design</h3>
+        <p>Logo, flyer et visuels publicitaires</p>
+        <p><strong>À partir de 30 USD</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Application</h3>
+        <p>Application personnalisée de gestion</p>
+        <p><strong>À partir de 300 USD</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">Choisissez comment vous voulez me contacter</p>
+
+    <div class="contact-box">
+      <p><strong>WhatsApp :</strong> +509 4443 8328</p>
+      <p><strong>Email :</strong> ricardodorlean195@gmail.com</p>
+
+      <form onsubmit="sendContact(event)">
+        <input type="text" id="name" placeholder="Votre nom" required>
+        <input type="text" id="service" placeholder="Service demandé" required>
+        <textarea id="message" placeholder="Votre message" required></textarea>
+
+        <select id="method" required>
+          <option value="whatsapp">Contacter par WhatsApp</option>
+          <option value="email">Contacter par Email</option>
+        </select>
+
+        <button type="submit" class="btn-send">Envoyer le message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ricardo Dorlean - Tous droits réservés</p>
+  </footer>
+
+  <script>
+    function sendContact(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value;
+      const method = document.getElementById("method").value;
+
+      const text = `Bonjour Ricardo, je suis ${name}. Service demandé : ${service}. Message : ${message}`;
+
+      if (method === "whatsapp") {
+        window.open(`https://wa.me/50944438328?text=${encodeURIComponent(text)}`, "_blank");
+      } else {
+        window.location.href = `mailto:ricardodorlean195@gmail.com?subject=Demande de service&body=${encodeURIComponent(text)}`;
+      }
+    }
+  </script>
+
+</body>
+</html>
